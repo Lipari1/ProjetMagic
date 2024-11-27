@@ -1,0 +1,10 @@
+<h1>Carte : {{ card['name'] }}</h1>
+<p>Type : {{ card['type_line'] }}</p>
+<p>Description : {{ card['oracle_text'] }}</p>
+
+<h2>Suggestions de Cartes Similaires</h2>
+<ul>
+{% for suggestion in suggestions %}
+    <li>{{ suggestion['name'] }} - {{ suggestion['type_line'] }}</li>
+{% endfor %}
+</ul>

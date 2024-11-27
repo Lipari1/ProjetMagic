@@ -1,0 +1,13 @@
+<form action="/update_deck/{{ deck_id }}" method="post">
+    <label for="name">Nom du deck :</label>
+    <input type="text" id="name" name="name" value="{{ deck.name }}">
+    <button type="submit">Mettre à jour</button>
+</form>
+<h2>Cartes dans le Deck</h2>
+<ul>
+{% for card in deck.cards %}
+    <li>{{ card.name }} - {{ card.type }} - {{ card.mana_cost }}
+        <a href="{{ url_for('delete_card', deck_id=deck_id, card_name=card.name) }}">Supprimer</a>
+    </li>
+{% endfor %}
+</ul>

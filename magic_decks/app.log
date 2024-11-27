@@ -1,0 +1,145 @@
+2024-11-27 10:58:07,981 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 10:58:07,981 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 10:58:07,983 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 10:58:09,089 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 10:58:09,113 INFO:  * Debugger PIN: 386-573-255 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 11:09:54,204 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 11:09:54,205 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 11:09:54,205 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 11:09:54,558 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 11:09:54,568 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:17:36,327 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:17:36,329 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:17:36,330 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:17:36,617 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:17:36,620 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:49,571 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:49,754 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:50,416 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:50,416 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:51,435 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:51,609 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:52,198 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:52,204 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:55,227 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:55,310 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:55,631 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:22:55,631 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:26,708 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:26,790 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:27,096 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:27,097 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:46,155 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:46,257 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:46,588 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:46,589 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:54,613 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:54,725 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:55,048 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:23:55,048 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:11,089 INFO:  * Detected change in '/app/app/__init__.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:11,166 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:11,551 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:11,563 INFO:  * Debugger PIN: 953-710-682 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:15,590 INFO:  * Detected change in '/app/app/__init__.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:24:15,697 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:55:07,771 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:55:07,773 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:55:07,775 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:55:08,609 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 12:55:08,613 INFO:  * Debugger PIN: 103-381-938 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:00:49,213 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:00:49,214 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:00:49,216 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:00:49,722 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:00:49,727 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:38,307 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:38,454 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:38,902 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:38,903 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:39,916 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:40,046 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:40,729 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:03:40,737 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:04:02,960 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:04:02,961 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:04:02,965 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:04:03,739 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:04:03,740 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:05:01,941 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:05:02,046 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:05:02,534 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:05:02,534 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:08,207 INFO:  * Detected change in '/app/run.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:08,420 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:09,246 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:09,248 INFO:  * Debugger PIN: 418-908-706 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:10,256 INFO:  * Detected change in '/app/run.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:08:10,463 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:09:17,133 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:09:17,134 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:09:17,136 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:09:17,553 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:09:17,554 INFO:  * Debugger PIN: 379-855-649 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:12:00,437 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:12:00,437 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:12:00,437 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:12:00,786 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:12:00,790 INFO:  * Debugger PIN: 379-855-649 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:19:22,282 INFO:  * Detected change in '/app/app/views.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:19:22,380 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:20:49,169 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:20:49,169 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:20:49,172 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:20:49,601 WARNING:  * Debugger is active! [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:20:49,602 INFO:  * Debugger PIN: 379-855-649 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:26:09,685 INFO:  * Detected change in '/app/run.py', reloading [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:26:09,809 INFO:  * Restarting with stat [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:33:21,389 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:33:21,391 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:33:29,298 INFO: 172.18.0.1 - - [27/Nov/2024 13:33:29] "GET /trololo HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:33:49,423 ERROR: Exception on / [GET] [in /usr/local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/app/app/views.py", line 17, in index
+    return render_template('index.html')
+  File "/usr/local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/usr/local/lib/python3.10/site-packages/flask/templating.py", line 127, in _render
+    app.update_template_context(context)
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 530, in update_template_context
+    context.update(self.ensure_sync(func)())
+  File "/usr/local/lib/python3.10/site-packages/flask_login/utils.py", line 405, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "/usr/local/lib/python3.10/site-packages/flask_login/utils.py", line 370, in _get_user
+    current_app.login_manager._load_user()
+  File "/usr/local/lib/python3.10/site-packages/flask_login/login_manager.py", line 347, in _load_user
+    raise Exception(
+Exception: Missing user_loader or request_loader. Refer to http://flask-login.readthedocs.io/#how-it-works for more info.
+2024-11-27 13:33:49,432 INFO: 192.168.56.1 - - [27/Nov/2024 13:33:49] "[35m[1mGET / HTTP/1.1[0m" 500 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:33:49,575 INFO: 192.168.56.1 - - [27/Nov/2024 13:33:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:41:02,144 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.2:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:41:02,147 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 13:41:12,117 INFO: 192.168.56.1 - - [27/Nov/2024 13:41:12] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
