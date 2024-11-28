@@ -143,3 +143,13 @@ Exception: Missing user_loader or request_loader. Refer to http://flask-login.re
  * Running on http://172.19.0.2:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
 2024-11-27 13:41:02,147 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
 2024-11-27 13:41:12,117 INFO: 192.168.56.1 - - [27/Nov/2024 13:41:12] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:32:30,037 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000 [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:32:30,040 INFO: [33mPress CTRL+C to quit[0m [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:32:41,414 INFO: 192.168.56.1 - - [27/Nov/2024 21:32:41] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:34:35,766 INFO: 192.168.56.1 - - [27/Nov/2024 21:34:35] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:34:36,937 INFO: 192.168.56.1 - - [27/Nov/2024 21:34:36] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:36:34,545 INFO: 192.168.56.1 - - [27/Nov/2024 21:36:34] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-11-27 21:36:35,781 INFO: 192.168.56.1 - - [27/Nov/2024 21:36:35] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]

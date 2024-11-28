@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion</h1>
+        <form method="POST" action="{{ url_for('my_blueprint.login') }}">
+            <div>
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p>Pas encore inscrit ? <a href="{{ url_for('my_blueprint.signup') }}">Inscrivez-vous ici</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{{ deck.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .suggestions {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            background-color: white;
+            position: absolute;
+            width: 200px;
+        }
+
+        .suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+        }
+
+        #card-artwork {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 300px;
+            max-height: 400px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ deck.name }}</h1>
+        <h2>Cartes dans ce deck :</h2>
+        <ul>
+            {% for card in deck.cards %}
+                <li class="deck-card" data-card-name="{{ card.name }}">
+                    {{ card.name }} - {{ card.type }} - {{ card.mana_cost }}
+                </li>
+            {% endfor %}
+        </ul>
+        <h3>Ajouter une nouvelle carte :</h3>
+        <form id="addCardForm" method="POST" action="{{ url_for('my_blueprint.add_card', deck_id=deck.id) }}">
+            <label for="cardName">Nom de la carte :</label>
+            <input type="text" id="cardName" name="name" autocomplete="off">
+            <div id="suggestions" class="suggestions"></div>
+            
+            <label for="type">Type :</label>
+            <input type="text" id="type" name="type">
+            
+            <label for="manaCost">Mana Cost :</label>
+            <input type="text" id="manaCost" name="mana_cost">
+            
+            <button type="submit">Ajouter une carte</button>
+        </form>
+        <br>
+        <a href="{{ url_for('my_blueprint.index') }}">Retour à la liste des decks</a>
+    </div>
+
+    <img id="card-artwork" src="" alt="Artwork de la carte">
+
+    <script>
+        $(document).ready(function() {
+            // Autocompletion
+            $('#cardName').on('input', function() {
+                let query = $(this).val();
+                if (query.length > 1) {
+                    $.ajax({
+                        url: "{{ url_for('my_blueprint.search_cards') }}",
+                        method: 'GET',
+                        data: { q: query },
+                        success: function(response) {
+                            let suggestions = $('#suggestions');
+                            suggestions.empty();
+                            response.forEach(function(card) {
+                                suggestions.append('<div data-name="' + card.name + '">' + card.name + '</div>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#suggestions').empty();
+                }
+            });
+
+            $(document).on('click', '#suggestions div', function() {
+                let cardName = $(this).data('name');
+                $('#cardName').val(cardName);
+                $('#suggestions').empty();
+            });
+
+            // Afficher l'image quand on survole une carte dans le deck
+            $('.deck-card').hover(function() {
+                let cardName = $(this).data('card-name');
+                if (cardName) {
+                    $.ajax({
+                        url: `https://api.scryfall.com/cards/named?fuzzy=${cardName}`,
+                        method: 'GET',
+                        success: function(response) {
+                            if (response.image_uris && response.image_uris.normal) {
+                                $('#card-artwork').attr('src', response.image_uris.normal).show();
+                            }
+                        }
+                    });
+                }
+            }, function() {
+                $('#card-artwork').hide();
+            });
+        });
+    </script>
+</body>
+</html>

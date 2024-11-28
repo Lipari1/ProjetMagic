@@ -1,9 +1,36 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Truc muche</title>
-    </head>
-    <body>
-        <h1>Clareteté</h1>
-    </body>
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Magic Decks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des Decks</h1>
+
+        <!-- Bouton de déconnexion -->
+        <div class="logout">
+            <a href="{{ url_for('my_blueprint.logout') }}">Se déconnecter</a>
+        </div>
+
+        {% if decks %}
+            <ul>
+            {% for deck in decks %}
+                <li>
+                    <a href="{{ url_for('my_blueprint.view_deck', deck_id=deck.id) }}">{{ deck.name }}</a>
+                    <!-- Bouton pour supprimer un deck -->
+                    <a href="{{ url_for('my_blueprint.delete_deck', deck_id=deck.id) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce deck ?');">Supprimer</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun deck trouvé. <a href="{{ url_for('my_blueprint.add_deck') }}">Créer un nouveau deck</a></p>
+        {% endif %}
+    </div>
+
+    <!-- Lien pour créer un nouveau deck -->
+    <br>
+    <a href="{{ url_for('my_blueprint.add_deck') }}">Créer un nouveau deck</a>
+</body>
 </html>

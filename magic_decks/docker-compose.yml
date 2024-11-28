@@ -5,6 +5,6 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/app
+      - ./data:/app/data  # Persist les données sur l'hôte
     environment:
       - FLASK_ENV=development

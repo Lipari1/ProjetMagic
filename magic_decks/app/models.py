@@ -7,15 +7,16 @@ db = getDb()
 class Deck(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    cards = db.relationship('Card', backref='deck', lazy=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)  # Permet d'avoir NULL
+    cards = db.relationship('Card', backref='deck', lazy=True, cascade='all, delete-orphan')
 
 class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     type = db.Column(db.String(100))
     mana_cost = db.Column(db.String(50))
-    deck_id = db.Column(db.Integer, db.ForeignKey('deck.id'), nullable=False)
+    deck_id = db.Column(db.Integer, db.ForeignKey('deck.id', ondelete='CASCADE'), nullable=True)
+
 
     def __init__(self, name, type, mana_cost, deck_id):
         self.name = name
