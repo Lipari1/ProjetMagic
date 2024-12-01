@@ -8,6 +8,9 @@ source venv/bin/activate  //pour activer l'environnement
 ```bash
 sudo docker system prune
 ```
+```bash
+docker-compose build && docker-compose up
+```
 docker-compose exec magic-decks python create_db.py
 
 deactivate
