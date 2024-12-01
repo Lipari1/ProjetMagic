@@ -15,18 +15,15 @@ class Card(db.Model):
     name = db.Column(db.String(100), nullable=False)
     type = db.Column(db.String(100))
     mana_cost = db.Column(db.String(50))
+    image_url = db.Column(db.String(255))  # Nouvelle colonne pour stocker l'URL de l'image
     deck_id = db.Column(db.Integer, db.ForeignKey('deck.id', ondelete='CASCADE'), nullable=True)
 
-
-    def __init__(self, name, type, mana_cost, deck_id):
+    def __init__(self, name, type, mana_cost, deck_id, image_url):
         self.name = name
         self.type = type
         self.mana_cost = mana_cost
         self.deck_id = deck_id
-
-
-    def add_card(self, card):
-        self.cards.append(card)
+        self.image_url = image_url
 
 def fetch_card_info(card_name):
     response = requests.get(f'https://api.scryfall.com/cards/named?fuzzy={card_name}')

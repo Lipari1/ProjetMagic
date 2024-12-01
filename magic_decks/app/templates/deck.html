@@ -1,116 +1,346 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>{{ deck.name }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Deck Builder</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        .suggestions {
-            border: 1px solid #ccc;
-            max-height: 150px;
-            overflow-y: auto;
-            background-color: white;
-            position: absolute;
-            width: 200px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
 
-        .suggestions div {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 10px;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .deck-options {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .deck-area {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            background-color: #444;
             padding: 10px;
+            overflow-y: auto;
+        }
+
+        .card-info {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            background-color: #555;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .card-search {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        .search-results {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+            background-color: #444;
+            padding: 10px;
+            overflow-y: scroll;
+            max-height: calc(100vh - 160px);
+        }
+
+        .deck-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .deck-card {
+            width: calc(20% - 10px);
+            padding: 5px;
+            box-sizing: border-box;
+            position: relative;
             cursor: pointer;
         }
 
-        .suggestions div:hover {
-            background-color: #f0f0f0;
+        .deck-card img {
+            width: 100%;
+            height: auto;
         }
 
-        #card-artwork {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+        .search-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .search-card img {
+            width: 100px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-image-large {
+            width: 100%;
             max-width: 300px;
-            max-height: 400px;
-            display: none;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>{{ deck.name }}</h1>
-        <h2>Cartes dans ce deck :</h2>
-        <ul>
-            {% for card in deck.cards %}
-                <li class="deck-card" data-card-name="{{ card.name }}">
-                    {{ card.name }} - {{ card.type }} - {{ card.mana_cost }}
-                </li>
-            {% endfor %}
-        </ul>
-        <h3>Ajouter une nouvelle carte :</h3>
-        <form id="addCardForm" method="POST" action="{{ url_for('my_blueprint.add_card', deck_id=deck.id) }}">
-            <label for="cardName">Nom de la carte :</label>
-            <input type="text" id="cardName" name="name" autocomplete="off">
-            <div id="suggestions" class="suggestions"></div>
-            
-            <label for="type">Type :</label>
-            <input type="text" id="type" name="type">
-            
-            <label for="manaCost">Mana Cost :</label>
-            <input type="text" id="manaCost" name="mana_cost">
-            
-            <button type="submit">Ajouter une carte</button>
-        </form>
-        <br>
-        <a href="{{ url_for('my_blueprint.index') }}">Retour à la liste des decks</a>
-    </div>
 
-    <img id="card-artwork" src="" alt="Artwork de la carte">
+        <!-- Options de Gestion du Deck -->
+        <div class="deck-options">
+            <h2>Gestion des Decks</h2>
+            <label for="deck-selector">Deck :</label>
+            <select id="deck-selector"></select>
+            <input type="text" id="new-deck-name" placeholder="Nom du nouveau deck">
+            <button id="create-deck-button">Créer</button>
+        </div>
+
+        <!-- Section du Deck au Centre -->
+        <div class="deck-area">
+            <h2>Deck en cours</h2>
+            <div class="deck-list">
+                <!-- Cartes du deck ici -->
+            </div>
+        </div>
+
+        <!-- Informations sur la Carte Sélectionnée -->
+        <div class="card-info">
+            <h2>Informations de la Carte</h2>
+            <div id="card-details">
+                <p>Sélectionnez une carte pour voir les détails.</p>
+            </div>
+        </div>
+
+        <!-- Zone de Recherche des Cartes -->
+        <div class="card-search">
+            <h2>Recherche de Cartes</h2>
+            <label for="search-name">Nom :</label>
+            <input type="text" id="search-name" placeholder="Tapez pour rechercher...">
+        </div>
+
+        <!-- Résultats de Recherche de Cartes -->
+        <div class="search-results">
+            <h2>Résultats de la Recherche</h2>
+            <div class="card-list">
+                <!-- Résultats des cartes -->
+            </div>
+            <button id="load-more-button" style="display: none;">Charger plus</button>
+        </div>
+
+    </div>
 
     <script>
         $(document).ready(function() {
-            // Autocompletion
-            $('#cardName').on('input', function() {
-                let query = $(this).val();
-                if (query.length > 1) {
-                    $.ajax({
-                        url: "{{ url_for('my_blueprint.search_cards') }}",
-                        method: 'GET',
-                        data: { q: query },
-                        success: function(response) {
-                            let suggestions = $('#suggestions');
-                            suggestions.empty();
-                            response.forEach(function(card) {
-                                suggestions.append('<div data-name="' + card.name + '">' + card.name + '</div>');
-                            });
-                        }
-                    });
+            let currentOffset = 0;
+            const limit = 20;
+
+            // Charger les decks
+            function loadDecks() {
+                $.ajax({
+                    url: "{{ url_for('my_blueprint.get_decks') }}",
+                    method: 'GET',
+                    success: function(response) {
+                        let deckSelector = $('#deck-selector');
+                        deckSelector.empty();
+                        response.forEach(function(deck) {
+                            deckSelector.append(`<option value="${deck.id}">${deck.name}</option>`);
+                        });
+                        loadDeckCards(deckSelector.val());
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors du chargement des decks:', error);
+                    }
+                });
+            }
+
+            // Charger les cartes d'un deck
+            function loadDeckCards(deckId) {
+                $.ajax({
+                    url: `/api/deck/${deckId}/cards`,
+                    method: 'GET',
+                    success: function(response) {
+                        let deckList = $('.deck-list');
+                        deckList.empty();
+                        response.forEach(function(card) {
+                            deckList.append(`
+                                <div class="deck-card" data-card-id="${card.id}">
+                                    <img src="${card.image_url ? card.image_url : 'https://via.placeholder.com/100'}" alt="${card.name}">
+                                    <button class="remove-button">X</button>
+                                </div>
+                            `);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors du chargement des cartes du deck:', error);
+                    }
+                });
+            }
+
+            // Créer un nouveau deck
+            $('#create-deck-button').click(function() {
+                let deckName = $('#new-deck-name').val();
+                $.ajax({
+                    url: '/api/deck/create',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ name: deckName }),
+                    success: function(response) {
+                        loadDecks();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors de la création du deck:', error);
+                    }
+                });
+            });
+
+            // Charger les cartes du deck sélectionné
+            $('#deck-selector').change(function() {
+                loadDeckCards($(this).val());
+            });
+
+            // Recherche instantanée de cartes (à chaque saisie dans le champ de recherche)
+            $('#search-name').on('input', function() {
+                currentOffset = 0;
+                let name = $(this).val();
+                if (name.length > 1) {
+                    loadSearchResults(name, currentOffset, limit);
                 } else {
-                    $('#suggestions').empty();
+                    $('.search-results .card-list').empty();
+                    $('#load-more-button').hide();
                 }
             });
 
-            $(document).on('click', '#suggestions div', function() {
-                let cardName = $(this).data('name');
-                $('#cardName').val(cardName);
-                $('#suggestions').empty();
+            // Charger plus de résultats
+            $('#load-more-button').click(function() {
+                let name = $('#search-name').val();
+                currentOffset += limit;
+                loadSearchResults(name, currentOffset, limit);
             });
 
-            // Afficher l'image quand on survole une carte dans le deck
-            $('.deck-card').hover(function() {
-                let cardName = $(this).data('card-name');
-                if (cardName) {
-                    $.ajax({
-                        url: `https://api.scryfall.com/cards/named?fuzzy=${cardName}`,
-                        method: 'GET',
-                        success: function(response) {
-                            if (response.image_uris && response.image_uris.normal) {
-                                $('#card-artwork').attr('src', response.image_uris.normal).show();
+            // Fonction pour charger les résultats de recherche
+            function loadSearchResults(query, offset, limit) {
+                $.ajax({
+                    url: `/search_cards?q=${query}&offset=${offset}&limit=${limit}`,
+                    method: 'GET',
+                    success: function(response) {
+                        let searchResults = $('.search-results .card-list');
+                        if (offset === 0) {
+                            searchResults.empty();
+                        }
+                        if (response.length === 0 && offset === 0) {
+                            searchResults.append('<p>Aucun résultat trouvé.</p>');
+                        } else {
+                            response.forEach(function(card) {
+                                let imageUrl = card.image || 'https://via.placeholder.com/100';
+                                searchResults.append(`
+                                    <div class="search-card" data-card-name="${card.name}" data-card-type="${card.type}" data-card-image-url="${card.image}">
+                                        <img src="${imageUrl}" alt="${card.name}">
+                                        <p>${card.name}</p>
+                                    </div>
+                                `);
+                            });
+                            if (response.length === limit) {
+                                $('#load-more-button').show();
+                            } else {
+                                $('#load-more-button').hide();
                             }
                         }
-                    });
-                }
-            }, function() {
-                $('#card-artwork').hide();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors de la recherche de cartes:', error);
+                    }
+                });
+            }
+
+            // Afficher les informations de la carte au survol
+            $(document).on('mouseenter', '.search-card', function() {
+                let cardName = $(this).data('card-name');
+                let cardType = $(this).data('card-type');
+                let cardImageUrl = $(this).data('card-image-url');
+
+                let imageUrl = cardImageUrl.replace('small', 'large'); // Remplacer 'small' par 'large' pour une meilleure qualité
+
+                $('#card-details').html(`
+                    <img class="card-image-large" src="${imageUrl}" alt="${cardName}">
+                    <h3>Nom de la Carte : ${cardName}</h3>
+                    <p>Type : ${cardType}</p>
+                `);
             });
+
+            // Ajouter une carte au deck en cliquant sur elle
+            $(document).on('click', '.search-card', function() {
+                let cardName = $(this).data('card-name');
+                let cardType = $(this).data('card-type');
+                let cardImageUrl = $(this).data('card-image-url');
+                let deckId = $('#deck-selector').val();
+
+                // Log pour vérifier les valeurs envoyées
+                console.log(`Tentative d'ajout de la carte - Nom: ${cardName}, Type: ${cardType}, URL: ${cardImageUrl}, Deck ID: ${deckId}`);
+
+                $.ajax({
+                    url: `/add_card/${deckId}`,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ name: cardName, type: cardType, image_url: cardImageUrl }),
+                    success: function(response) {
+                        loadDeckCards(deckId);
+                        alert(response.message);  // Afficher le message de succès
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors de l\'ajout de la carte au deck:', error);
+                        alert("Erreur lors de l'ajout de la carte. Vérifiez les logs pour plus de détails.");
+                    }
+                });
+            });
+
+            // Supprimer une carte du deck
+            $(document).on('click', '.remove-button', function() {
+                let cardId = $(this).parent().data('card-id');
+                let deckId = $('#deck-selector').val();
+
+                $.ajax({
+                    url: `/api/deck/${deckId}/remove_card/${cardId}`,
+                    method: 'DELETE',
+                    success: function(response) {
+                        loadDeckCards(deckId);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur lors de la suppression de la carte du deck:', error);
+                    }
+                });
+            });
+
+            // Charger initialement les decks
+            loadDecks();
         });
     </script>
 </body>

@@ -20,17 +20,58 @@
                 <li>
                     <a href="{{ url_for('my_blueprint.view_deck', deck_id=deck.id) }}">{{ deck.name }}</a>
                     <!-- Bouton pour supprimer un deck -->
-                    <a href="{{ url_for('my_blueprint.delete_deck', deck_id=deck.id) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce deck ?');">Supprimer</a>
+                    <a href="#" onclick="deleteDeck({{ deck.id }}); return false;">Supprimer</a>
                 </li>
             {% endfor %}
             </ul>
         {% else %}
-            <p>Aucun deck trouvé. <a href="{{ url_for('my_blueprint.add_deck') }}">Créer un nouveau deck</a></p>
+            <p>Aucun deck trouvé. Utilisez le formulaire ci-dessous pour créer un nouveau deck.</p>
         {% endif %}
+
+        <!-- Formulaire pour créer un nouveau deck -->
+        <input type="text" id="new-deck-name" placeholder="Nom du nouveau deck">
+        <button id="create-deck-button">Créer un nouveau deck</button>
     </div>
 
-    <!-- Lien pour créer un nouveau deck -->
-    <br>
-    <a href="{{ url_for('my_blueprint.add_deck') }}">Créer un nouveau deck</a>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#create-deck-button').click(function() {
+                let deckName = $('#new-deck-name').val();
+                if (deckName) {
+                    $.ajax({
+                        url: '/api/deck/create',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ name: deckName }),
+                        success: function(response) {
+                            if (response.success) {
+                                location.reload();
+                            } else {
+                                alert('Erreur lors de la création du deck.');
+                            }
+                        }
+                    });
+                } else {
+                    alert('Veuillez entrer un nom de deck.');
+                }
+            });
+        });
+
+        function deleteDeck(deckId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce deck ?')) {
+                $.ajax({
+                    url: `/delete_deck/${deckId}`,
+                    method: 'GET',
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function() {
+                        alert('Erreur lors de la suppression du deck.');
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
